@@ -95,13 +95,13 @@ class action {
         const { rowIndex } = args.pop()
         const row = this.metaAction.gf(`data.list.${rowIndex}`).toJS()
         
-        if(!this.config.apps['mk-app-person']){
-            throw '依赖mk-app-person app,请使用mk clone mk-app-person命令添加'
+        if(!this.config.apps['mk-app-person-card']){
+            throw '依赖mk-app-person-card app,请使用mk clone mk-app-person-card命令添加'
         }
 
         const ret = await this.metaAction.modal('show', {
             title: '人员',
-            children: this.metaAction.loadApp('mk-app-person', {
+            children: this.metaAction.loadApp('mk-app-person-card', {
                 store: this.component.props.store,
                 personId: row.id
             })
