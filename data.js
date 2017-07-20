@@ -182,9 +182,9 @@ export function getMeta() {
 						children: '{{data.list[_rowIndex].birthday}}',
 					},
 				}, {
-					name: 'dept',
+					name: 'department',
 					component: 'DataGrid.Column',
-					columnKey: 'dept',
+					columnKey: 'department',
 					flexGrow: 1,
 					width: 100,
 					header: {
@@ -196,7 +196,7 @@ export function getMeta() {
 						name: 'cell',
 						component: 'DataGrid.Cell',
 						_power: '({rowIndex})=>rowIndex',
-						children: '{{data.list[_rowIndex].dept?data.list[_rowIndex].dept.name:undefined}}',
+						children: '{{data.list[_rowIndex].department}}',
 					},
 				}, {
 					name: 'address',

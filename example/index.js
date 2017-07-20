@@ -1,9 +1,11 @@
 import { config, start, componentFactory } from 'mk-meta-engine'
 import myConfig  from './config'
 
+import mk_app_person_card from './apps/mk-app-person-card/index.js'
 import mk_app_person_list from './apps/mk-app-person-list/index.js'
 
 const apps = {
+	[mk_app_person_card.name]:mk_app_person_card,	
 	[mk_app_person_list.name]:mk_app_person_list,	
 }
 

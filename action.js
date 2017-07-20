@@ -22,8 +22,8 @@ class action {
 
     load = async (pagination, filter = {}) => {
         const response = await this.webapi.person.query({ pagination, filter })
-        response.value.filter = filter
-        this.injections.reduce('load', response.value)
+        response.filter = filter
+        this.injections.reduce('load', response)
     }
 
     getListRowsCount = () => {
@@ -101,9 +101,10 @@ class action {
 
         const ret = await this.metaAction.modal('show', {
             title: '人员',
-            children: this.metaAction.loadApp('mk-app-person-card', {
+            children: this.metaAction.loadApp('mk-app-person-card?from=list', {
                 store: this.component.props.store,
-                personId: row.id
+                personId: row.id,
+                isPop:true
             })
         })
 

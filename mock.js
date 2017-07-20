@@ -17,8 +17,21 @@ function initPersons() {
                 sex: i % 2 + '',
                 birthday: `1980-${i % 11 + 1}-${i % 28 + 1}`,
                 mobile: '13818181' + (100 + i),
-                dept: undefined,
+                department: undefined,
                 address: '北京海淀'
+            })
+        }
+    }
+}
+
+function initDepartments() {
+    if (!mockData.departments) {
+        mockData.departments = []
+        for (let i = 0; i < 5; i++) {
+            mockData.departments.push({
+                id: i,
+                code: '00' + (i + 1),
+                name: '部门' + (i + 1),
             })
         }
     }
@@ -26,6 +39,8 @@ function initPersons() {
 
 fetch.mock('/v1/person/query', (option) => {
     initPersons()
+    initDepartments()
+
     const { pagination, filter } = option
 
     var data = mockData.persons
@@ -59,5 +74,12 @@ fetch.mock('/v1/person/query', (option) => {
         if (data[j])
             ret.value.list.push(data[j])
     }
+
+    ret.value.list = ret.value.list.map(o => {
+        return {
+            ...o,
+            department: o.department ? mockData.departments.find(d => d.code == o.department).name : o.department
+        }
+    })
     return ret
 })
