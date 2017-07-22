@@ -1,8 +1,8 @@
 {
   "_from": "mk-app-person-list",
-  "_id": "mk-app-person-list@1.0.2",
+  "_id": "mk-app-person-list@1.0.3",
   "_inBundle": false,
-  "_integrity": "sha512-VN8pfIcd5aKSWbcI+myhRxNOs517SveUDAL2WB2rKhEGHVWCCxnDGLydFmyDg94QrbHwYNCJQQ5iFeMKqJ1DyA==",
+  "_integrity": "sha512-Z5U81296PGjRqtU/34RMpWFbNSxqcTnTLb9ggCLbFF4TJZwbMpziQfNV2FqK24mDxTCOOu8ugV9VkoWSQbGxcw==",
   "_location": "/mk-app-person-list",
   "_phantomChildren": {},
   "_requested": {
@@ -19,8 +19,8 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/mk-app-person-list/-/mk-app-person-list-1.0.2.tgz",
-  "_shasum": "966425c662022e5ff77ab6cd721ed20b8acf8aec",
+  "_resolved": "https://registry.npmjs.org/mk-app-person-list/-/mk-app-person-list-1.0.3.tgz",
+  "_shasum": "27c724bc738e646a327d49c3f592f546b9f4de0f",
   "_spec": "mk-app-person-list",
   "_where": "/home/zlj/my/github/self/mk-app-person-list/master/example",
   "author": "",
@@ -45,5 +45,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
