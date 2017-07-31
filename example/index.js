@@ -1,33 +1,34 @@
 import { config, start, componentFactory } from 'mk-meta-engine'
+import * as mkComponents from 'mk-component'
 import myConfig  from './config'
 
 import mk_app_person_list from './apps/mk-app-person-list/index.js'
 
 const apps = {
-	config: (options) => {
-		Object.keys(options).forEach(key => {
-			const reg = new RegExp(`^${key == '*' ? '.*' : key}$`) 
-			Object.keys(apps).forEach(appName => { 
-				if (appName != 'config') {
-					if (reg.test(appName)) {
-						apps[appName].config(options[key])
-					}
-				}
-			})
-		})
-	},
-	[mk_app_person_list.name]:mk_app_person_list,	
+	
+	[mk_app_person_list.name]: mk_app_person_list,
+
 }
 
+apps.config = (options) => {
+	Object.keys(options).forEach(key => {
+		const reg = new RegExp(`^${key == '*' ? '.*' : key}$`)
+		Object.keys(apps).forEach(appName => {
+			if (appName != 'config') {
+				if (reg.test(appName)) {
+					apps[appName].config(options[key])
+				}
+			}
+		})
+	})
+}
 
-config(myConfig({apps}))
+apps.config({ '*': { apps } })
 
-
-import * as mkComponents from 'mk-component'
+config(myConfig({ apps }))
 
 Object.keys(mkComponents).forEach(key=>{
 	componentFactory.registerComponent(key, mkComponents[key])
 })
 	
-
 start()
