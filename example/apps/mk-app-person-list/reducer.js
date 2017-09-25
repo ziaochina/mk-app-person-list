@@ -10,15 +10,11 @@ class reducer {
 
     init = (state, option) => {
         const initState = getInitState()
-        //init之后紧接有load的情况可以设置_notRender=true,优化性能
-        initState.data._notRender = true
         return this.metaReducer.init(state, initState)
 
     }
 
     load = (state, response) => {
-        //init之中存在_notRender=true,load要重新设置为false,否则引擎会不render
-        state = this.metaReducer.sf(state, 'data._notRender', false)
         state = this.metaReducer.sf(state, 'data.list', fromJS(response.list))
         state = this.metaReducer.sf(state, 'data.pagination', fromJS(response.pagination))
         state = this.metaReducer.sf(state, 'data.filter', fromJS(response.filter))
