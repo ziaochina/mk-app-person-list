@@ -5,9 +5,8 @@ import myConfig  from './config'
 import mk_app_person_list from './apps/mk-app-person-list/index.js'
 
 const apps = {
-	
+		
 	[mk_app_person_list.name]: mk_app_person_list,
-
 }
 
 apps.config = (options) => {
